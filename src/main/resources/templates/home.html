@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tango Travel Guide- Share Your Travel Ideas and Plans</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/styles.css" th:href="@{/styles.css}"/>
+
+</head>
+<body>
+
+
+<nav class="nav-left">
+    <ul>
+        <li><a href="home.html" th:href="@{/}">Home</a></li>
+        <li><a href="travelTip.html">Travel Tips</a></li>
+    </ul>
+</nav>
+
+<div class="searchbar">
+    <form th:action="@{/}" action="home.html" method="get">
+        <label>
+            <span class="country-search">Which country would you like to explore?</span>
+            <select name = "species">
+                <option name="Australia" type="text" value="Australia">Australia</option>
+                <option name="Israel" type="text" value="Israel">Israel</option>
+                <option name="Jordan" type="text" value="Jordan">Jordan</option>
+                <option name="Iceland" type="text" value="Iceland">Iceland</option>
+                <option name="Norway" type="text" value="Norway">Norway</option>
+                <option name="Korea" type="text" value="Korea">Korea</option>
+                <option name="Thailand" type="text" value="Thailand">Thailand</option>
+                <option name="Vietnam" type="text" value="Vietnam">Vietnam</option>
+                <option name="Spain" type="text" value="Spain">Spain</option>
+                <option name="Germany" type="text" value="Germany">Germany</option>
+            </select><br/>
+        </label>
+    </form>
+</div>
+
+</body>
+</html>
