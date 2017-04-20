@@ -1,31 +1,75 @@
+/*----------Body----------*/
+
 body{
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     background: url(images/map.png) no-repeat center center fixed;
     background-size: contain;
-}
-
-nav li{
-    display: inline-block;
-    padding: 0.25em;
-    margin: 0.125em;
-}
-
-.nav-left{
-    margin: 0;
-    padding: 0;
-}
-
-nav {
-    background-color: #f5ffef;
-    display: block;
-    padding: 0.25em;
+    background-position: 50% 10px;
+    margin: auto;
 }
 
 .country-search{
-    color: #b659ff;
+    color: #005a84;
 }
 
 .searchbar{
     float: left;
+}
+
+
+ul, li, a {
+    padding:0;
+    margin:0;
+}
+
+
+/*----------Header----------*/
+
+header{
+    width:100%;
+}
+
+nav {
+    display: block;
+    background-color: #0095c8;
+    width: 100%;
+    margin: 0;
+
+}
+
+nav li{
+    display: inline-block;
+    padding: 8px;
+}
+
+
+
+
+/*----------Footer----------*/
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: #0095c8;
+    margin: 0;
+}
+
+.about-us{
+    display: inline-block;
+    float: right;
+    color: #fcb813;
+    margin-right: 10px;
+}
+
+.about-us a{
+    color: #fcb813;
+}
+
+footer p {
+    margin-top: 4px;
+    font-size: smaller;
+
 }

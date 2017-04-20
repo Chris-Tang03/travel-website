@@ -1,21 +1,21 @@
 package com.christang.controller;
 
-import com.christang.bean.TravelRepository;
-import com.christang.service.TravelService;
+import com.christang.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class TravelController {
+public class CountryController {
 
     @Autowired
-    TravelService service;
+    CountryService service;
 
     @GetMapping("/")
-    public String home(Model model, String country){
-        model.addAttribute("country", country);
+    public String home(Model model, @RequestParam (defaultValue = "") String alpha3Code){
+        model.addAttribute("alpha3Code", alpha3Code);
         model.addAttribute("countries", service.listCountries());
         return "home";
     }

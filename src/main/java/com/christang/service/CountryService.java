@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class TravelService {
+public class CountryService {
 
     @Value("${restcountries.api.url}")
     String apiUrl;
@@ -17,9 +17,18 @@ public class TravelService {
     public List<Country> listCountries(){
         RestTemplate restTemplate = new RestTemplate();
 
-        Country[] repos = restTemplate.getForObject(
+        Country[] countries = restTemplate.getForObject(
                 apiUrl + "/all",
                 Country[].class);
-        return Arrays.asList(repos);
+        return Arrays.asList(countries);
+    }
+
+    public Country getCountryBy(Country alpha3Code){
+        RestTemplate restTemplate = new RestTemplate();
+
+        Country country = restTemplate.getForObject(
+                apiUrl + "/alpha?codes=col;no;ee",
+                Country.class);
+        return country;
     }
 }
