@@ -1,5 +1,7 @@
-package com.christang;
+package com.christang.controller;
 
+import com.christang.bean.TravelRepository;
+import com.christang.service.TravelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,12 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TravelController {
 
     @Autowired
-    TravelRepository repo;
+    TravelService service;
 
     @GetMapping("/")
-    public String home(Model model, String search){
-        model.addAttribute("search", search);
-        model.addAttribute("countries", repo.listCountry(search));
+    public String home(Model model, String country){
+        model.addAttribute("country", country);
+        model.addAttribute("countries", service.listCountries());
         return "home";
     }
 

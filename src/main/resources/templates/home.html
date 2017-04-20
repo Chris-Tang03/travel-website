@@ -22,21 +22,22 @@
     <form th:action="@{/}" action="home.html" method="get">
         <label>
             <span class="country-search">Which country would you like to explore?</span>
-            <select name = "species">
-                <option name="Australia" type="text" value="Australia">Australia</option>
-                <option name="Israel" type="text" value="Israel">Israel</option>
-                <option name="Jordan" type="text" value="Jordan">Jordan</option>
-                <option name="Iceland" type="text" value="Iceland">Iceland</option>
-                <option name="Norway" type="text" value="Norway">Norway</option>
-                <option name="Korea" type="text" value="Korea">Korea</option>
-                <option name="Thailand" type="text" value="Thailand">Thailand</option>
-                <option name="Vietnam" type="text" value="Vietnam">Vietnam</option>
-                <option name="Spain" type="text" value="Spain">Spain</option>
-                <option name="Germany" type="text" value="Germany">Germany</option>
+            <select name = "country">
+
+                <!--th:each on option tag-->
+                <!--th:value for replacing countries' values-->
+                <!--th:text for countries' names-->
+                <option value="Australia" th:each="country : ${countries}" th:value="${country.getAlpha3Code()}" th:text="${country.getName()}">Australia</option>
+                <option value="Israel" th:remove="all">Israel</option>
+                <option value="Jordan" th:remove="all">Jordan</option>
+                <option value="Iceland" th:remove="all">Iceland</option>
+
             </select><br/>
         </label>
     </form>
 </div>
+
+<!--<div th:text="${countries}"></div>-->
 
 </body>
 </html>
