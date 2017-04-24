@@ -10,46 +10,61 @@
 </head>
 <body>
 
-<div id="container">
+<header>
+    <nav>
+        <ul>
+            <li><a href="home.html" th:href="@{/}" style="color: #fcb813">Home</a></li>
+            <li><a href="travelTip.html" style="color: #fcb813">Travel Tips</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html" th:href="@{/}" style="color: #fcb813">Home</a></li>
-                <li><a href="travelTip.html" style="color: #fcb813">Travel Tips</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="searchbar">
+    <form th:action="@{/}" action="home.html" method="get">
+        <label>
+            <span class="country-search">Which country would you like to explore?</span>
+            <select name = "alpha3Code">
 
-    <div class="searchbar">
-        <form th:action="@{/}" action="home.html" method="get">
-            <label>
-                <span class="country-search">Which country would you like to explore?</span>
-                <select name = "alpha3Code">
+                <!--th:each on option tag-->
+                <!--th:value for replacing countries' values-->
+                <!--th:text for countries' names-->
+                <option value=""></option>
+                <option value="Australia" th:each="country : ${countries}" th:selected="${country.getAlpha3Code() == alpha3Code}" th:value="${country.getAlpha3Code()}" th:text="${country.getName()}">Browse Countries</option>
+                <option value="Israel" th:remove="all">Israel</option>
+                <option value="Jordan" th:remove="all">Jordan</option>
+                <option value="Iceland" th:remove="all">Iceland</option>
 
-                    <!--th:each on option tag-->
-                    <!--th:value for replacing countries' values-->
-                    <!--th:text for countries' names-->
-                    <option value=""></option>
-                    <option value="Australia" th:each="alpha3Code : ${countries}" th:value="${alpha3Code.getAlpha3Code()}" th:text="${alpha3Code.getName()}">Browse Countries</option>
-                    <option value="Israel" th:remove="all">Israel</option>
-                    <option value="Jordan" th:remove="all">Jordan</option>
-                    <option value="Iceland" th:remove="all">Iceland</option>
-
-                </select>
-                <button>Search</button>
-            </label>
-        </form>
-    </div>
-
-    <!--<div th:text="${countries}"></div>-->
-
-    <footer>
-        <section class="about-us">
-            <p><a>© 2017 Tango Travel Guide | </a><a href="privacy-policy">Privacy Policy</a> | <a href="terms-of-use">Terms of Use</a></p>
-        </section>
-    </footer>
-
+            </select>
+            <button>Search</button>
+        </label>
+    </form>
 </div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="info" th:if="${country}" style="border: 1px solid red;">
+    <img class="flag" th:src="${country.getFlag()}"/>
+    <p>Country Name: <span th:text="${country.getName()}"></span></p>
+    <p>Demonym (inhabitant/language)): <span class="demonym" th:text="${country.getDemonym()}"></span></p>
+    <p>Capital: <span class="capital" th:text="${country.getCapital()}"></span></p>
+    <p>Region: <span class="region" th:text="${country.getRegion()}"></span></p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+
+<footer>
+    <section class="about-us">
+        <p><a>© 2017 Tango Travel Guide | </a><a href="privacy-policy">Privacy Policy</a> | <a href="terms-of-use">Terms of Use</a></p>
+    </section>
+</footer>
 </body>
 </html>

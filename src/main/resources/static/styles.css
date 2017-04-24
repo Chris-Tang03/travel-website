@@ -23,6 +23,30 @@ ul, li, a {
     margin:0;
 }
 
+button{
+    border-radius: 10px;
+    background-color: #fcb813;
+    border-color: transparent;
+    color: #0095c8;
+}
+
+
+
+/*----------Pop-up Info----------*/
+
+.info{
+    background-color: lemonchiffon;
+}
+
+
+.flag{
+    float: right;
+    height: 250px;
+    width: 400px;
+}
+
+
+
 
 /*----------Header----------*/
 

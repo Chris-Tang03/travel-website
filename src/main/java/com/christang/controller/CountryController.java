@@ -17,6 +17,9 @@ public class CountryController {
     public String home(Model model, @RequestParam (defaultValue = "") String alpha3Code){
         model.addAttribute("alpha3Code", alpha3Code);
         model.addAttribute("countries", service.listCountries());
+        if(alpha3Code.length() == 3){
+            model.addAttribute("country", service.getCountryByCode(alpha3Code));
+        }
         return "home";
     }
 

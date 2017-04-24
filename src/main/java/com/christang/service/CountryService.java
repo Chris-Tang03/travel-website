@@ -23,12 +23,18 @@ public class CountryService {
         return Arrays.asList(countries);
     }
 
-    public Country getCountryBy(Country alpha3Code){
+    public Country getCountryByCode(String alpha3Code){
         RestTemplate restTemplate = new RestTemplate();
 
         Country country = restTemplate.getForObject(
-                apiUrl + "/alpha?codes=col;no;ee",
+                apiUrl + "/alpha/" + alpha3Code,
                 Country.class);
         return country;
     }
+
+//    public String getCountry(Country country) {
+//        if(country != ' ' || country != null){
+//
+//        }
+//    }
 }
