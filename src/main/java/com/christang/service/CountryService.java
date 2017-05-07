@@ -31,10 +31,4 @@ public class CountryService {
                 Country.class);
         return country;
     }
-
-//    public String getCountry(Country country) {
-//        if(country != ' ' || country != null){
-//
-//        }
-//    }
 }

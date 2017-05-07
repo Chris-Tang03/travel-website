@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Tango Travel Guide - Share Your Travel Ideas and Plans</title>
+    <title>TangoInfo - Find Details Of Your Favorite Countries</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link rel="stylesheet" href="../static/styles.css" th:href="@{/styles.css}"/>
@@ -14,12 +14,11 @@
     <nav>
         <ul>
             <li><a href="home.html" th:href="@{/}" style="color: #fcb813">Home</a></li>
-            <li><a href="travelTip.html" style="color: #fcb813">Travel Tips</a></li>
         </ul>
     </nav>
 </header>
 
-<div class="searchbar">
+<div class="container">
     <form th:action="@{/}" action="home.html" method="get">
         <label>
             <span class="country-search">Which country would you like to explore?</span>
@@ -44,20 +43,23 @@
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
 
-<div class="info" th:if="${country}" style="border: 1px solid red;">
+
+<!--style="border: 1px solid red;"-->
+<div class="info" th:if="${country}">
+    <br/>
+    <br/>
     <img class="flag" th:src="${country.getFlag()}"/>
-    <p>Country Name: <span th:text="${country.getName()}"></span></p>
-    <p>Demonym (inhabitant/language)): <span class="demonym" th:text="${country.getDemonym()}"></span></p>
+    Country Name: <span th:text="${country.getName()}"></span>
+    <br/>
+    <br/>
+    <p>Demonym (inhabitant/language): <span class="demonym" th:text="${country.getDemonym()}"></span></p>
+    <br/>
     <p>Capital: <span class="capital" th:text="${country.getCapital()}"></span></p>
+    <br/>
     <p>Region: <span class="region" th:text="${country.getRegion()}"></span></p>
     <br/>
-    <br/>
-    <br/>
-    <br/>
+
 </div>
 
 

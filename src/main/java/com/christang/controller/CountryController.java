@@ -22,9 +22,4 @@ public class CountryController {
         }
         return "home";
     }
-
-    @GetMapping("/travelTip")
-    public String travelTip(){
-        return "travelTip";
-    }
 }
