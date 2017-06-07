@@ -36,12 +36,13 @@ button{
 
 .info{
     background-color: lemonchiffon;
+    height: 400px;
 }
 
 
 .flag{
     float: right;
-    height: 250px;
+    height: 300px;
     width: 400px;
 }
 
